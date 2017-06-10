@@ -21,15 +21,16 @@
         return 0;
     }
 
+编译
+    
+    gcc -o main main.c easylog.c
 
-gcc -o main main.c easylog.c
-
-./main
+    ./main
 
 test.log 里面的内容：
 
-2017-06-10 04:42:42.996 main.c 11 main() -- hello 我的
-04:42:42.997 main.c 13 main() -- hello 你的
+    2017-06-10 04:42:42.996 main.c 11 main() -- hello 我的
+    04:42:42.997 main.c 13 main() -- hello 你的
 
 然后就可以用啦，更详细一些的使用在我的博客([http://www.fengbohello.top/code/easylog](http://www.fengbohello.top/code/easylog))里面也有说明哦~
 
