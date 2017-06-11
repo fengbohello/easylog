@@ -1,4 +1,4 @@
-#Linux下简单的日志库
+# Linux下简单的日志库
 
 你可以只需要写两三行代码就完成配置，然后就可以轻快记录日志了。
 
@@ -9,12 +9,12 @@
     
     int main(int argc, char* argv[]) {
         easylog_file("test.log");
-        easylog_flag_add(EASYLOG_DATE | 
-                EASYLOG_TIME |
-                EASYLOG_FILE |
-                EASYLOG_LINE |
-                EASYLOG_FUNC);
-        easylog("hello 我的");
+        easylog_flag_add(EASYLOG_DATE | //在日志中添加日期
+                EASYLOG_TIME |          //在日志中添加时间
+                EASYLOG_FILE |          //在日志中添加本日志语句所在的文件名
+                EASYLOG_LINE |          //在日志中添加本日志语句所在的文件中的行
+                EASYLOG_FUNC);          //在日志中添加本日志语句所在的函数
+        easylog("hello 我的");
         easylog_flag_rm(EASYLOG_DATE);
         easylog("hello 你的");
     
