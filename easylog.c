@@ -147,7 +147,9 @@ int easylog_write_log(const char * fmt, va_list arg_list) {
     }
     vfprintf(g_master_fp, fmt, arg_list);
     fprintf(g_master_fp, "\n");
-    fflush(g_master_fp);
+    if(g_master_flag & EASYLOG_FLUSH) {
+        fflush(g_master_fp);
+    }
 
     return 0;
 }

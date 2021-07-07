@@ -12,6 +12,7 @@ extern const char* g_master_lev;
 #define EASYLOG_LINE    (1 << 3)
 #define EASYLOG_FUNC    (1 << 4)
 #define EASYLOG_LEVEL   (1 << 5)
+#define EASYLOG_FLUSH   (1 << 8)
 
 int easylog_flag_add(int flag);
 int easylog_flag_rm(int flag);
