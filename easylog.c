@@ -28,12 +28,6 @@
 #include <sys/time.h>
 #include <errno.h>
 
-#define DEBUG(fmt, arg...) \
-    do{\
-        printf(fmt, ##arg);\
-        printf("\n");\
-    }while(0)
-
 char g_logfile[128] = {0};
 int  g_master_fd = -1;
 FILE *g_master_fp = NULL;
@@ -110,6 +104,20 @@ int file_stat_ok() {
     }
 
     return 0;
+}
+
+const char *easylog_timestr() {
+    static char sztm[64] = {0};
+    struct timeval start;
+    gettimeofday(&start, NULL);
+    struct tm t;
+    bzero(&t, sizeof(t));
+    localtime_r(&start.tv_sec, &t);
+    snprintf(sztm, sizeof(sztm),
+        "%04d-%02d-%02d %02d:%02d:%02d.%03ld",
+        t.tm_year + 1900, t.tm_mon + 1, t.tm_mday,
+        t.tm_hour, t.tm_min, t.tm_sec, start.tv_usec / 1000);
+    return sztm;
 }
 
 int easylog_write_log(const char * fmt, va_list arg_list) {

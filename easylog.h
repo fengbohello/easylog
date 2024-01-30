@@ -1,6 +1,15 @@
 #ifndef _EASYLOG_H_
 #define _EASYLOG_H_
 
+
+#define EASYLOG_DEBUG(fmt, arg...) \
+    do{\
+        printf("%s %s:%d %s() -- ", easylog_timestr(), __FILE__, __LINE__, __func__); \
+        printf(fmt, ##arg);\
+        printf("\n");\
+    }while(0)
+
+
 extern const char* g_master_file;
 extern int         g_master_line;
 extern const char* g_master_fun;
@@ -18,6 +27,7 @@ int easylog_flag_add(int flag);
 int easylog_flag_rm(int flag);
 int easylog_file(const char * logfile);
 int easylog_write(const char * fmt, ...);
+const char *easylog_timestr();
 
 #define easylog_log(fmt, arg...) \
     do{\

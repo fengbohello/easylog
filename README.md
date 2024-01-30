@@ -9,6 +9,7 @@
 #include "easylog.h"
 
 int main(int argc, char* argv[]) {
+    EASYLOG_DEBUG("log will write to file './test.log'");
     easylog_file("test.log");
     easylog_flag_add(EASYLOG_DATE |
             EASYLOG_TIME |
@@ -19,6 +20,7 @@ int main(int argc, char* argv[]) {
     easylog("hello 我的");
     easylog_flag_rm(EASYLOG_DATE);  //在日志中删除日期
     easylog("hello %s", "你的");
+    EASYLOG_DEBUG("test %s", "over");
 
     return 0;
 }
@@ -34,6 +36,8 @@ make -C examples
 
 ```
 ./examples/main
+2024-01-28 12:58:46.222 main.c:5 main() -- log will write to file './test.log'
+2024-01-28 12:58:46.222 main.c:16 main() -- test over
 ```
 
 main 程序会在当前目录下生成 test.log 文件，
