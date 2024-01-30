@@ -18,7 +18,7 @@ int main(int argc, char* argv[]) {
 
     easylog("hello 我的");
     easylog_flag_rm(EASYLOG_DATE);  //在日志中删除日期
-    easylog("hello 你的");
+    easylog("hello %s", "你的");
 
     return 0;
 }
