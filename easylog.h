@@ -1,6 +1,10 @@
 #ifndef _EASYLOG_H_
 #define _EASYLOG_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 
 #define EASYLOG_DEBUG(fmt, arg...) \
     do{\
@@ -57,5 +61,10 @@ const char *easylog_timestr();
         easylog_write(fmt, ##arg);\
     }while(0)
 
+#endif
+
+
+#ifdef __cplusplus
+}
 #endif
 

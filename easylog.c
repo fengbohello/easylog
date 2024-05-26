@@ -28,6 +28,12 @@
 #include <sys/time.h>
 #include <errno.h>
 
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 char g_logfile[128] = {0};
 int  g_master_fd = -1;
 FILE *g_master_fp = NULL;
@@ -185,4 +191,8 @@ int easylog_flag_rm(int flag) {
     return 0;
 }
 
+
+#ifdef __cplusplus
+}
+#endif
 
